@@ -2,6 +2,8 @@ const downloadDriveImage = require("./downloadDriveImage");
 
 const generateBirthdayImage = async (data) => {
   try {
+    if (!data.picture) return false;
+
     const { path } = await downloadDriveImage({
       name: data.name,
       image_id: data.picture.split("id=")[1],
