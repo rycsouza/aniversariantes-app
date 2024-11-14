@@ -1,0 +1,4 @@
+node_modules
+.env
+googleServiceAccountKey.json
+tmp

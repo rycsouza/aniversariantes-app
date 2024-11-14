@@ -1,0 +1,19 @@
+{
+  "name": "aniversariantes-app",
+  "version": "1.0.0",
+  "description": "by github.com/rycsouza",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "author": "@rycsouza",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "canvas": "^2.11.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "googleapis": "^144.0.0",
+    "nodemon": "^3.1.7"
+  }
+}
