@@ -6,9 +6,9 @@ const {
 } = require("../utils/index.js");
 
 class SheetsController {
-  static async notifyBirthday(request, response) {
+  static async notifyBirthday({ request, response }) {
     try {
-      const { groupName } = request.all();
+      const { groupName } = request.params;
 
       const data = await getData();
       if (!data?.length) return response.status(200).json([]);

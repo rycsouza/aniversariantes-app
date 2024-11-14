@@ -5,8 +5,10 @@ const Env = require("dotenv").config().parsed;
 const app = express();
 app.use(express.json());
 
-app.get("/", (req, res) => SheetsController.notifyBirthday(req, res));
+app.get("/:groupName", (request, response) =>
+  SheetsController.notifyBirthday({ request, response })
+);
 
 app.listen(Env.PORT, () => {
-  console.log(`Servidor rodando na porta ${Env.PORT}`);
+  console.log(`Servidor rodando em: http://localhost:${Env.PORT}`);
 });
