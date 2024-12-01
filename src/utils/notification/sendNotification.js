@@ -10,18 +10,12 @@ const sendNotification = async ({ name, phone, picture, groupName }) => {
     const formData = new FormData();
 
     formData.append("today", `${today.currentDay}/${today.currentMonth}`);
-    formData.append("name", name);
-    formData.append("phone", phone);
+    formData.append("name", name?.trim());
+    formData.append("phone", phone?.trim());
+    if (picture) formData.append("picture", picture?.trim());
     formData.append("groupName", groupName);
     formData.append("comunicacaoTag", "birthday-message");
 
-    // Se houver uma imagem, adicioná-la ao FormData
-    // if (picture) {
-    //   if (!picture.includes("http")) picture = fs.createReadStream(picture);
-    //   formData.append("picture", picture);
-    // }
-
-    //Enviar notificação/mensagem contendo a imagem (se houver), nome, e telefone.
     const response = await axios.post(
       `${URL_COMUNICACAO_API}/whatsapp/sendGroupMessage`,
       formData,

@@ -18,14 +18,10 @@ class SheetsController {
       if (!formattedData?.length) return response.status(200).json([]);
 
       for (const organizedData of formattedData) {
-        const image = null;
-        // (await generateBirthdayImage(organizedData))?.path ??
-        // organizedData.picture;
-
         await sendNotification({
           name: organizedData.name,
           phone: organizedData.phone,
-          picture: image,
+          picture: organizedData.picture,
           groupName,
         });
       }
